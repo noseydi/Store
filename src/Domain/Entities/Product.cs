@@ -21,5 +21,8 @@ namespace Domain.Entities
         public bool IsActive { get  ; set  ; }
         public bool IsDelete { get  ; set  ; }
         public string Summary { get  ; set  ; }
+
+        public  ProductBrand ProductBrand { get; set; }
+        public ProductType ProductType { get; set; }
     }
 }
