@@ -12,7 +12,7 @@ namespace Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "ProductBrand",
+                name: "productbrand",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -23,17 +23,17 @@ namespace Infrastructure.Migrations
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
                     Summary = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Created = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: true),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true),
                     LastModifiedBy = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductBrand", x => x.Id);
+                    table.PrimaryKey("PK_productbrand", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductType",
+                name: "producttype",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -44,13 +44,13 @@ namespace Infrastructure.Migrations
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
                     Summary = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Created = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: true),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true),
                     LastModifiedBy = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductType", x => x.Id);
+                    table.PrimaryKey("PK_producttype", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -69,7 +69,7 @@ namespace Infrastructure.Migrations
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
                     Summary = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     Created = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: true),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true),
                     LastModifiedBy = table.Column<int>(type: "int", nullable: true)
                 },
@@ -77,15 +77,15 @@ namespace Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_products_ProductBrand_ProductBeandId",
+                        name: "FK_products_productbrand_ProductBeandId",
                         column: x => x.ProductBeandId,
-                        principalTable: "ProductBrand",
+                        principalTable: "productbrand",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_products_ProductType_ProductTypeId",
+                        name: "FK_products_producttype_ProductTypeId",
                         column: x => x.ProductTypeId,
-                        principalTable: "ProductType",
+                        principalTable: "producttype",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -108,10 +108,10 @@ namespace Infrastructure.Migrations
                 name: "products");
 
             migrationBuilder.DropTable(
-                name: "ProductBrand");
+                name: "productbrand");
 
             migrationBuilder.DropTable(
-                name: "ProductType");
+                name: "producttype");
         }
     }
 }

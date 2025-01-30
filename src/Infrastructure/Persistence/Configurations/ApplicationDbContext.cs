@@ -16,6 +16,8 @@ namespace Infrastructure.Persistence.Configurations
             
         }
         public DbSet<Product> products => Set<Product>();
+        public DbSet<ProductBrand> productbrand => Set<ProductBrand>();
+        public DbSet<ProductType> producttype => Set<ProductType>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
