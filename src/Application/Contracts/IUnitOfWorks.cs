@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Contracts
 {
-    internal class IUnitOfWorks
+    public class IUnitOfWorks
     {
     }
 }
