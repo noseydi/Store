@@ -5,6 +5,9 @@ namespace Web.Controllers
 {
     public class ProductsController : BaseApiController
     {
-       
+       public async Task<IActionResult> Get()
+        {
+            return Ok();
+        }
     }
 }

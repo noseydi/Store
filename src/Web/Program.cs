@@ -1,3 +1,4 @@
+using Application;
 using Infrastructure;
 using Infrastructure.Persistence.Configurations;
 using Infrastructure.Persistence.SeedData;
@@ -7,6 +8,7 @@ using Web;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddApplicationServices();
 
 builder.Services.AddInstructionServices(builder.Configuration);
 builder.AddWebServiceCollection();
