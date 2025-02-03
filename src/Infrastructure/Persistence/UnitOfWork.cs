@@ -10,15 +10,18 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Persistence
 {
-    public class UnitOfWork : IUnitOfWorks
+    public class UnitOfWork : IUnitOfWork
     {
-        private readonly ApplicationDbContext _context; 
-        public DbContext context => throw new NotImplementedException();
+        private readonly ApplicationDbContext _context;
+        public DbContext Context => _context;
+
+        public DbContext context => _context;
+
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
         }
-        public DbContext Context => _context;   
+
         public IGenericRepository<T> Repository<T>() where T : BaseEntity
         {
             return new GenericRepository<T>(_context);

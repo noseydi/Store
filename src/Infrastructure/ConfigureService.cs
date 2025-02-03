@@ -21,8 +21,8 @@ namespace Infrastructure
                 option.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             }
           );
-            // services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
-            services.AddScoped<IUnitOfWorks, UnitOfWork>();
+            //services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             return services; 
         }
     }
