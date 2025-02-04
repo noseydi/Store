@@ -14,7 +14,6 @@
     <Folder Include="Dtos\" />
     <Folder Include="Common\" />
     <Folder Include="Features\Products\Commands\" />
-    <Folder Include="Features\Products\Queries\Get\" />
     <Folder Include="Features\Products\Validator\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>

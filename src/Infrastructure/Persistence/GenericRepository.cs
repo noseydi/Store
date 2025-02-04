@@ -26,7 +26,7 @@ namespace Infrastructure.Persistence
         {
             var record = await GetByIdAsync(entity.Id, cancellationToken);
             record.IsDeleted = true;
-            await _context.SaveChangesAsync();
+            await UpdateAsync(entity);
         }
 
         public async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken)
@@ -36,7 +36,7 @@ namespace Infrastructure.Persistence
 
         public async Task<T> GetByIdAsync(int id, CancellationToken cancellationToken)
         {
-            return await _dbSet.FindAsync(id, cancellationToken); 
+            return await _dbSet.FirstOrDefaultAsync(x => x.Id == id  , cancellationToken); 
         }
 
         public Task<T> UpdateAsync(T entity)
