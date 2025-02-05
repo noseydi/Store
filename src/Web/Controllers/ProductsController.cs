@@ -20,6 +20,6 @@ namespace Web.Controllers
         {
             return Ok(await Mediator.Send(new GetProductQuery(id), cancellationToken ));
         }
-       
+        
     }
 }
