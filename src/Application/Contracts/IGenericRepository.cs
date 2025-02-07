@@ -18,7 +18,7 @@ namespace Application.Contracts
         void Delete(T entity , CancellationToken cancellationToken);
         Task<bool> AnyAsync(Expression<Func<T , bool>> expression , CancellationToken cancellationToken);
         Task<bool> AnyAsync(CancellationToken cancellationToken);
-        Task<T> GetEntitywithSpec(ISpecification<T> spec);
-        Task<IReadOnlyList<T>> ListAsyncSpec(ISpecification<T> spec);
+        Task<T> GetEntitywithSpec(ISpecification<T> spec , CancellationToken cancellationToken);
+        Task<IReadOnlyList<T>> ListAsyncSpec(ISpecification<T> spec , CancellationToken cancellationToken);
     }
 }
