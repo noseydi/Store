@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Application.Common.BahavioursPipe;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 namespace Application
@@ -9,6 +10,7 @@ namespace Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(cfg2 => cfg2.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            services.AddTransient(typeof(IPipelineBehavior<,>),typeof(PerformanceBehaviour<,>));
         }
     }
 }
