@@ -21,7 +21,7 @@ namespace Domain.Exceptions
         {
             Message = message;
         }
-        public ApiToReturn(int statusCode , string message )
+        public ApiToReturn(int statusCode, string message)
         {
             statusCode = statusCode;
             Message = message;
@@ -29,15 +29,25 @@ namespace Domain.Exceptions
         public ApiToReturn(int statusCode, List<string> messages)
         {
             StatusCode = statusCode;
-           // Message = message;
+            // Message = message;
+
             Messages = messages;
         }
-        public ApiToReturn(int statusCode , List<string> messages , string   detail)
+        public ApiToReturn(int statusCode, List<string> messages, string detail)
+        {
+            StatusCode = statusCode;
+            Messages = messages;
+            Detail = detail;
+        }
+        public ApiToReturn(int statusCode, string message, List<string> messages, string detail)
         {
             statusCode = statusCode;
             Messages = messages;
+            Message = message;
             //Message = messages != null && messages.Any() ? null : message ;
             Detail = detail;
+            messages.Add(message);
+
         }
     }
 }
