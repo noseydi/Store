@@ -9,5 +9,9 @@ namespace Application.Contracts.Specification
         List<Expression<Func<T , object >>> Includes { get;  }
         Expression<Func<T, object>>  OrderBy { get; }
         Expression<Func<T, object>>  OrderByDesc { get; }
+
+        public int Take { get;  }
+        public int Skip { get; }
+        public bool IsPagingEnabled { get; } 
     }
 }

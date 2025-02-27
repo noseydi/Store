@@ -30,6 +30,10 @@ namespace Application.Contracts.Specification
             {
                 query=query.OrderByDescending(specification.OrderByDesc);
             }
+            if (specification.IsPagingEnabled)
+            {
+                query = query.Skip(specification.Skip).Take(specification.Take);
+            }
             return query;
         }
     }

@@ -7,15 +7,15 @@ namespace Application.Features.Products.Queries.GetAll
 {
     public class GetProductSpec : BaseSpecification<Product>
     {
-        public GetProductSpec(GetAllProductQuery request) : base (x=>
-        !request.BrandId.HasValue || x.ProductBeandId == request.BrandId
-        && (!request.TypeId.HasValue || x.ProductTypeId == request.TypeId))
+        public GetProductSpec(GetAllProductQuery specparams) : base (x=>
+        !specparams.BrandId.HasValue || x.ProductBeandId == specparams.BrandId
+        && (!specparams.TypeId.HasValue || x.ProductTypeId == specparams.TypeId))
         {
             AddInclude(x => x.ProductBrand);
             AddInclude(x=> x.ProductType);
-            if (request.TypeSort == TypeSort.Desc)
+            if (specparams.TypeSort == TypeSort.Desc)
             {
-                switch (request.Sort)
+                switch (specparams.Sort)
                 {
                     case 1:
                         AddOrderByDesc(x => x.Title);
@@ -30,7 +30,7 @@ namespace Application.Features.Products.Queries.GetAll
             }
             else
             {
-                switch (request.Sort)
+                switch (specparams.Sort)
                 {
                     case 1:
                         AddOrderBy(x => x.Title);
@@ -43,6 +43,7 @@ namespace Application.Features.Products.Queries.GetAll
                         break;
                 }
             }
+            ApplyPaging(specparams.PageSize * (specparams.PageIndex - 1), specparams.PageSize, true);
         }
         public GetProductSpec(int Id): base (x => x.Id ==  Id) 
         {

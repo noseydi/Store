@@ -19,6 +19,12 @@ namespace Application.Contracts.Specification
 
         public Expression<Func<T, object>> OrderByDesc { get; private set; }
 
+        public int Take { get; set;  }
+
+        public int Skip { get; set; }
+
+        public bool IsPagingEnabled { get; set; }
+
         public BaseSpecification()
         {
             
@@ -39,6 +45,12 @@ namespace Application.Contracts.Specification
         protected void AddOrderByDesc(Expression<Func<T, object>> orderByExpression)
         {
             OrderBy = orderByExpression;
+        }
+        protected void ApplyPaging(int skip , int take , bool ispagingenabled = true)
+        {
+            Skip = skip;
+            Take = take;
+            IsPagingEnabled = ispagingenabled;
         }
 
     }

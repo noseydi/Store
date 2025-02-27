@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Wrappers
 {
-    public abstract class RequestParametersBasic
+    public abstract class RequestParametersBasic : PaginationParametersDto
     {
         private string _Search {  get; set; }
         public TypeSort TypeSort { get; set; } = TypeSort.Desc;
