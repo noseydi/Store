@@ -10,7 +10,7 @@ namespace Web.Controllers
     public class ProductsController : BaseApiController
     {
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> Get(CancellationToken cancellationToken)
+        public async Task<ActionResult<IEnumerable<ProductDto>>> Get([FromQuery] GetAllProductQuery request ,  CancellationToken cancellationToken)
         {
             return Ok(await Mediator.Send(new GetAllProductQuery(), cancellationToken));
         }

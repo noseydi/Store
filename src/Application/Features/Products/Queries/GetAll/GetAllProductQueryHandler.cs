@@ -25,7 +25,7 @@ namespace Application.Features.Products.Queries.GetAll
 
         public async Task<IEnumerable< ProductDto>> Handle(GetAllProductQuery request, CancellationToken cancellationToken)
         {
-            var spec = new GetProductSpec();
+            var spec = new GetProductSpec(request);
           var result =  await _uow.Repository<Product>().ListAsyncSpec(spec , cancellationToken);
             return _mapper.Map<IEnumerable<ProductDto>>(result);
              // return await _uow.Repository<Product>().GetAllAsync(cancellationToken);
