@@ -8,8 +8,12 @@ namespace Application.Features.Products.Queries.GetAll
     public class GetProductSpec : BaseSpecification<Product>
     {
         public GetProductSpec(GetAllProductQuery specparams) : base (x=>
-        !specparams.BrandId.HasValue || x.ProductBeandId == specparams.BrandId
-        && (!specparams.TypeId.HasValue || x.ProductTypeId == specparams.TypeId))
+        (string.IsNullOrEmpty(specparams.Search)||x.Title.ToLower().Contains(specparams.Search))
+        &&
+        (!specparams.BrandId.HasValue || x.ProductBrandId == specparams.BrandId)
+        &&
+        (!specparams.TypeId.HasValue || x.ProductTypeId == specparams.TypeId)
+        )
         {
             AddInclude(x => x.ProductBrand);
             AddInclude(x=> x.ProductType);
@@ -51,4 +55,5 @@ namespace Application.Features.Products.Queries.GetAll
             AddInclude(x=> x.ProductType);
         }
     }
+
 }

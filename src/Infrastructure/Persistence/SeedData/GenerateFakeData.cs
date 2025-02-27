@@ -69,7 +69,7 @@ namespace Infrastructure.Persistence.SeedData
                         Summary = "summery test",
                         PictureUrl="",
                         ProductTypeId =1 ,
-                        ProductBeandId = 1,
+                        ProductBrandId = 1,
                     }
                     };
                     await context.products.AddRangeAsync(products);

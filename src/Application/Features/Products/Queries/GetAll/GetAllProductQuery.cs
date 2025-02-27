@@ -13,7 +13,7 @@ namespace Application.Features.Products.Queries.GetAll
 {
     public class GetAllProductQuery : RequestParametersBasic , IRequest<IEnumerable<ProductDto>> , ICacheQuery
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public int? BrandId { get; set; }
         public int? TypeId { get; set; }
         //[NotMapped]

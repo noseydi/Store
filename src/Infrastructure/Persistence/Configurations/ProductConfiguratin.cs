@@ -16,7 +16,7 @@ namespace Infrastructure.Persistence.Configurations
         {
             builder.Property(x => x.PictureUrl).IsRequired().HasMaxLength(100);
             builder.Property(x=> x.Price).IsRequired().HasColumnType("decimal(18,2)");
-            builder.HasOne(x => x.ProductBrand).WithMany().HasForeignKey(x => x.ProductBeandId);
+            builder.HasOne(x => x.ProductBrand).WithMany().HasForeignKey(x => x.ProductBrandId);
             builder.HasOne(x => x.ProductType).WithMany().HasForeignKey(x => x.ProductTypeId);
             builder.Property(x=> x.Title).HasMaxLength(100);
             builder.Property(x=>x.Description).HasMaxLength(500);   
