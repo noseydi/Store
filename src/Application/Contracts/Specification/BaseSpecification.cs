@@ -23,7 +23,7 @@ namespace Application.Contracts.Specification
 
         public int Skip { get; set; }
 
-        public bool IsPagingEnabled { get; set; }
+        public bool IsPagingEnabled { get; set; } = true;
 
         public BaseSpecification()
         {

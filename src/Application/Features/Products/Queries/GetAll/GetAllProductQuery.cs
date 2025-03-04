@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Products.Queries.GetAll
 {
-    public class GetAllProductQuery : RequestParametersBasic , IRequest<IEnumerable<ProductDto>> , ICacheQuery
+    public class GetAllProductQuery : RequestParametersBasic , IRequest<PaginationResponse<ProductDto>> , ICacheQuery
     {
         //public int Id { get; set; }
         public int? BrandId { get; set; }
