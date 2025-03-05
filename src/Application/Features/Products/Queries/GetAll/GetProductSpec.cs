@@ -57,7 +57,7 @@ namespace Application.Features.Products.Queries.GetAll
     {
         public ProductCountSpec(GetAllProductQuery specParams) : base (Expression.ExpressionSpec(specParams)) 
         {
-
+            IsPagingEnabled = false;
         }
     }
     public static class Expression
