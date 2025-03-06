@@ -10,7 +10,7 @@ namespace Web
 {
     public  static class ConfigureService
     {
-        public static IServiceCollection AddWebServiceCollection (this WebApplicationBuilder builder )
+        public static IServiceCollection AddWebServiceCollection (this WebApplicationBuilder builder  , IConfiguration configuration)
         {
 
             builder.Services.AddControllers();
@@ -29,6 +29,17 @@ namespace Web
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().WithOrigins(configuration["CorsAddress:AddressHtpp"] ,
+                        configuration["CorsAddress:AddressHttps"]);
+                });
+            }
+            );
+
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddDistributedMemoryCache ();
             return builder.Services;
@@ -58,7 +69,9 @@ namespace Web
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseRouting();
+            app.UseCors("CorsPolicy");
+            
             app.UseAuthorization();
 
             app.MapControllers();
