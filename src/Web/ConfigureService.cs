@@ -34,7 +34,7 @@ namespace Web
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().WithOrigins(configuration["CorsAddress:AddressHtpp"] ,
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins(configuration["CorsAddress:AddressHttp"] ,
                         configuration["CorsAddress:AddressHttps"]);
                 });
             }
