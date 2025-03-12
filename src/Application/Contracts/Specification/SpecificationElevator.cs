@@ -14,9 +14,9 @@ namespace Application.Contracts.Specification
         public static IQueryable<T> GetQuery(IQueryable<T> inputquery, ISpecification<T> specification)
         {
             var query = inputquery.AsQueryable();
-            if (specification.Criteria != null)
+            if (specification.Predicate != null)
             {
-                query = query.Where(specification.Criteria);
+                query = query.Where(specification.Predicate);
             }
             if (specification.Includes.Any())
             {

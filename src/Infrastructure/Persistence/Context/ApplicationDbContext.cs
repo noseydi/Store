@@ -23,9 +23,9 @@ namespace Infrastructure.Persistence.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            modelBuilder.Entity<Product>().HasQueryFilter(x => x.IsDelete == false);
-            modelBuilder.Entity<ProductType>().HasQueryFilter(x => x.IsDelete == false);
-            modelBuilder.Entity<ProductBrand>().HasQueryFilter(x => x.IsDelete == false);
+            modelBuilder.Entity<Product>().HasQueryFilter(x => x.IsDeleted == false);
+            modelBuilder.Entity<ProductType>().HasQueryFilter(x => x.IsDeleted == false);
+            modelBuilder.Entity<ProductBrand>().HasQueryFilter(x => x.IsDeleted == false);
 
         }
     }
