@@ -50,7 +50,7 @@ namespace Application.Common.BahavioursPipe
 
         private static TimeSpan TimeToLive(TRequest request)
         {
-            return new TimeSpan(request.HoursafeData , 0 ,0,0);
+            return new TimeSpan( 0 ,0,0, request.HoursafeData);
         }
 
         private string GenerateKey()
