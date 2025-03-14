@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Runtime.CompilerServices;
+using Web.Middleware;
 
 namespace Web
 {
@@ -34,7 +35,8 @@ namespace Web
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins(configuration["CorsAddress:AddressHttp"] ,
+                    policy.AllowAnyHeader().AllowAnyMethod()
+                    .WithOrigins(configuration["CorsAddress:AddressHttp"] ,
                         configuration["CorsAddress:AddressHttps"]);
                 });
             }
@@ -46,6 +48,7 @@ namespace Web
         }
         public static async Task<IApplicationBuilder> AddWebAppServiceAsync(this WebApplication app)
         {
+            app.UseMiddleware<MiddlwareExceptionHandler>();
             var scope = app.Services.CreateScope();
             var services = scope.ServiceProvider;
 
@@ -69,6 +72,8 @@ namespace Web
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseStaticFiles();
+
             app.UseRouting();
             app.UseCors("CorsPolicy");
             

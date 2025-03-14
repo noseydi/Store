@@ -5,18 +5,18 @@ using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Web.Common;
 
-namespace Web.Controllers
+namespace Web
 {
     public class ProductsController : BaseApiController
     {
-        [HttpGet]
+        [HttpGet("products")]
         public async Task<ActionResult<IEnumerable<ProductDto>>> Get([FromQuery] GetAllProductQuery request ,
             CancellationToken cancellationToken)
         {
             return Ok(await Mediator.Send(request , cancellationToken));
         }
         
-        [HttpGet("{id:int}")]
+        [HttpGet("product/{id:int}")]
         public async Task<ActionResult<ProductDto>> Get([FromRoute] int id, CancellationToken cancellationToken)
         {
             return Ok(await Mediator.Send(new GetProductQuery(id), cancellationToken ));
