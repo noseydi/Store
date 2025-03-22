@@ -9,7 +9,7 @@ namespace Web.Controllers
    
     public class ProductBrandController : BaseApiController
     {
-        [HttpGet("Get All Product Brand")]
+        [HttpGet("ProductBrand")]
         public async Task<ActionResult<IEnumerable<ProductBrand>>> GetAllProductBrand(CancellationToken cancellationToken)
         {
             return Ok(await Mediator.Send ( new GetAllProductBrandsQuery() ,  cancellationToken));

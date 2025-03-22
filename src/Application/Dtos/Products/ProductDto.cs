@@ -19,7 +19,7 @@ namespace Application.Dtos.Products
         public decimal Price { get; set; }
         public string PictureUrl { get; set; }
         public int ProductTypeId { get; set; }
-        public int ProductBeandId { get; set; }
+        public int ProductBrandId { get; set; }
         public string ProductBrand { get; set; }// Title
         public string ProductType { get; set; }//Title
 

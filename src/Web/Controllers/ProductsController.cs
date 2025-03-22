@@ -9,14 +9,16 @@ namespace Web
 {
     public class ProductsController : BaseApiController
     {
-        [HttpGet("products")]
+        [HttpGet("Products")]
         public async Task<ActionResult<IEnumerable<ProductDto>>> Get([FromQuery] GetAllProductQuery request ,
             CancellationToken cancellationToken)
         {
             return Ok(await Mediator.Send(request , cancellationToken));
         }
-        
-        [HttpGet("product/{id:int}")]
+
+       
+
+        [HttpGet("Product/{id:int}")]
         public async Task<ActionResult<ProductDto>> Get([FromRoute] int id, CancellationToken cancellationToken)
         {
             return Ok(await Mediator.Send(new GetProductQuery(id), cancellationToken ));

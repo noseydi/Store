@@ -33,14 +33,11 @@ namespace Web
 
             builder.Services.AddCors(opt =>
             {
-                opt.AddPolicy("CorsPolicy", policy =>
-                {
-                    policy.AllowAnyHeader().AllowAnyMethod()
-                    .WithOrigins(configuration["CorsAddress:AddressHttp"] ,
-                        configuration["CorsAddress:AddressHttps"]);
-                });
-            }
-            );
+                opt.AddPolicy("CorsPolicy", policy => policy.WithOrigins("http://localhost:4200").
+                AllowAnyMethod().AllowAnyHeader()
+              );
+            });
+          
 
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddDistributedMemoryCache ();
