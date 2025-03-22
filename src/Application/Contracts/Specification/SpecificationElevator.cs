@@ -18,10 +18,6 @@ namespace Application.Contracts.Specification
             {
                 query = query.Where(specification.Predicate);
             }
-            if (specification.Includes.Any())
-            {
-                query = specification.Includes.Aggregate(query , (current , value ) => current.Include(value));
-            }
             if (specification.OrderBy!=null)
             {
                 query= query.OrderBy(specification.OrderBy);
@@ -29,6 +25,10 @@ namespace Application.Contracts.Specification
             if (specification.OrderByDesc != null)
             {
                 query=query.OrderByDescending(specification.OrderByDesc);
+            }
+            if (specification.Includes.Any())
+            {
+                query = specification.Includes.Aggregate(query, (current, value) => current.Include(value));
             }
             if (specification.IsPagingEnabled)
             {

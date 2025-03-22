@@ -12,6 +12,11 @@ namespace Application.Contracts
     public interface IGenericRepository<T> where T : BaseEntity
     {
         Task<T> GetByIdAsync(int id , CancellationToken cancellationToken);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken);
         Task<T> AddAsync(T entity, CancellationToken cancellationToken);
         Task<T> UpdateAsync(T entity);

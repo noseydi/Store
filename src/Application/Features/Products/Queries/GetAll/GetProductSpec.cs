@@ -12,6 +12,7 @@ namespace Application.Features.Products.Queries.GetAll
         public GetProductSpec(GetAllProductQuery specparams) : base(Expression.ExpressionSpec(specparams))
 
         {
+
             AddInclude(x => x.ProductBrand);
             AddInclude(x => x.ProductType);
             if (specparams.TypeSort == TypeSort.Desc)
@@ -46,7 +47,7 @@ namespace Application.Features.Products.Queries.GetAll
             }
             ApplyPaging(specparams.PageSize * (specparams.PageIndex - 1), specparams.PageSize, true);
         }
-        public GetProductSpec(int Id) : base(x => x.Id == Id)
+        public GetProductSpec(int id) : base(x => x.Id ==id)
         {
             AddInclude(x => x.ProductBrand);
             AddInclude(x => x.ProductType);

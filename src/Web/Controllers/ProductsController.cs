@@ -12,6 +12,7 @@ namespace Web
         [HttpGet("Products")]
         public async Task<ActionResult<IEnumerable<ProductDto>>> Get([FromQuery] GetAllProductQuery request ,
             CancellationToken cancellationToken)
+        
         {
             return Ok(await Mediator.Send(request , cancellationToken));
         }
