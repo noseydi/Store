@@ -67,7 +67,8 @@ namespace Infrastructure.Persistence.SeedData
                         Price=15000,
                         Title ="test" ,
                         Summary = "summery test",
-                        PictureUrl="image1.jpg",
+                        
+                       PictureUrl ="image1.jpg",
                         ProductTypeId =1 ,
                         ProductBrandId = 1,
                     }

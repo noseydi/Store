@@ -8,7 +8,7 @@ namespace Application.Wrappers
 {
     public abstract class RequestParametersBasic : PaginationParametersDto
     {
-        private string? _Search { get; set; } 
+        private string? _Search { get; set; } = string.Empty;
         public TypeSort TypeSort { get; set; } = TypeSort.Desc;
         public int Sort { get; set; } = 1;
 

@@ -15,9 +15,9 @@ namespace Application.Wrappers
             Count = count;
             Result = result;
         }
-        public int PageIndex { get; set; }
-        public int PageSize { get; set; }
-        public int Count { get; set; }
+        public int PageIndex { get; set; } = 1;
+        public int PageSize { get; set; }= 12;
+        public int Count { get; set; }  
         //ireadonly
         public IEnumerable<T> Result { get; set; }
 
